@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+WORKDIR /opt/base
+
+# Dependências de sistema mínimas (necessárias para torch)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Atualiza pip
+RUN pip install --upgrade pip
+
+# 1️⃣ Instala NumPy COMPATÍVEL
+RUN pip install "numpy<2"
+
+# 2️⃣ Instala PyTorch CPU a partir do índice oficial
+RUN pip install torch==2.2.2+cpu \
+    --index-url https://download.pytorch.org/whl/cpu
+
+# 3️⃣ Sentence Transformers
+RUN pip install sentence-transformers

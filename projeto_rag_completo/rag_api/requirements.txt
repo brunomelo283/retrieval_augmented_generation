@@ -1,0 +1,24 @@
+# API
+fastapi
+uvicorn
+python-dotenv
+python-multipart
+pydantic
+
+# HTTP client
+requests
+
+# Haystack
+haystack-ai
+
+# Document loaders
+pypdf
+
+# Embeddings & reranking
+sentence-transformers
+
+# Vector DB
+qdrant-client==1.9.1
+
+# Search
+elasticsearch>=8.12.0
